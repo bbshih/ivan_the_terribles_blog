@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '1.9.3'
 
 gem 'rails', '3.2.13'
 
@@ -21,7 +22,8 @@ end
 
 gem 'jquery-rails'
 gem 'faker'
-
+gem 'rack-mini-profiler'
+gem 'rails_best_practices'
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
@@ -49,3 +51,5 @@ end
 
 # To use debugger
 # gem 'debugger'
+
+gem 'kaminari'

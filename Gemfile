@@ -32,6 +32,11 @@ group :development, :test do
   gem 'hirb'
 end
 
+group :test do
+  gem 'test-unit'
+  gem 'ruby-prof'
+end
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

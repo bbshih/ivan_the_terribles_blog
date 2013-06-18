@@ -13,10 +13,12 @@
  */
 
 .comment { 
-   margin-left: 10px;
+   margin-left: 20px;
+   padding: 5px;
  }
 
 .reply { 
-  margin-left: 20px;
-  color: gray;
+  margin-left: 40px;
+  background-color: #c6c6c6;
+  padding: 5px;
 }

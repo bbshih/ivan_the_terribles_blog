@@ -1,12 +1,20 @@
 class PostsController < ApplicationController
   caches_page :index, :page
 
+  # def showcomments
+  #   @comments = Post.find(params[:id]).comments
+
+  #   respond_to do |format|
+  #     format.html { render showcomments: @comments }
+  #   end
+  # end
+
   # GET /posts
   # GET /posts.json
   def index
     # .order("id").joins(:comments)
     @posts = Post.page params[:page]
-    # @posts = Post.page params[:page]
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
@@ -19,9 +27,14 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # new.html.erb
       format.json { render json: @post }
     end
+  end
+
+  def comments
+    @post = Post.find(params[:id])
+    @comments = @post.comments
   end
 
   # GET /posts/new

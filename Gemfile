@@ -23,7 +23,7 @@ end
 gem 'jquery-rails'
 gem 'faker'
 gem 'rack-mini-profiler'
-gem 'rails_best_practices'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'

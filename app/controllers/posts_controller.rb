@@ -1,9 +1,13 @@
 class PostsController < ApplicationController
+  caches_page :index
+  caches_page :page
+
   # GET /posts
   # GET /posts.json
   def index
+    # .order("id").joins(:comments)
     @posts = Post.page params[:page]
-
+    # @posts = Post.page params[:page]
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
@@ -46,6 +50,7 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
+        expire_page :action => :index
       else
         format.html { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -62,6 +67,7 @@ class PostsController < ApplicationController
       if @post.update_attributes(params[:post])
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
+        expire_page :action => :index
       else
         format.html { render action: "edit" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -74,6 +80,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    expire_page :action => :index
 
     respond_to do |format|
       format.html { redirect_to posts_url }

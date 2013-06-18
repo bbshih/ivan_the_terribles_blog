@@ -11,4 +11,12 @@
  *= require_self
  *= require_tree .
  */
-.reply {color: red;}
+
+.comment { 
+   margin-left: 10px;
+ }
+
+.reply { 
+  margin-left: 20px;
+  color: gray;
+}
